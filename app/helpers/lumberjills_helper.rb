@@ -1,0 +1,2 @@
+module LumberjillsHelper
+end

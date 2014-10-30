@@ -1,0 +1,27 @@
+<h1>Listing lumberjills</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>True Love</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lumberjills.each do |lumberjill| %>
+      <tr>
+        <td><%= lumberjill.name %></td>
+        <td><%= lumberjill.lumberjack ? lumberjill.lumberjack.name : "nil" %></td>
+        <td><%= link_to 'Show', lumberjill %></td>
+        <td><%= link_to 'Edit', edit_lumberjill_path(lumberjill) %></td>
+        <td><%= link_to 'Destroy', lumberjill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Lumberjill', new_lumberjill_path %>

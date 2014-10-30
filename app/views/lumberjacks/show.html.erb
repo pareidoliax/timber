@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @lumberjack.name %>
+</p>
+
+<p>
+  <strong>True Love:</strong>
+  <%= @lumberjack.lumberjill ? @lumberjack.lumberjill.name : "nil" %>
+</p>
+
+<p>
+  <strong>Admirers:</strong>
+  <% @lumberjack.lumberjills.each do |lumberjill| %>
+  <%= lumberjill.name %>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_lumberjack_path(@lumberjack) %> |
+<%= link_to 'Back', lumberjacks_path %>
