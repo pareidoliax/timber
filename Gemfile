@@ -1,22 +1,28 @@
 source 'https://rubygems.org'
 # Ruby Version
 
-ruby '2.1.2'
+ruby '2.1.3'
 
 # Customizations
 
-gem 'bootstrap-sass'
+## Twitter Bootstrap with SASS Support
+gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 
-gem 'simple_form'
+## Simple Form Release Candidate with Bootstrap 3 Support
+gem 'simple_form', git: 'https://github.com/plataformatec/simple_form', ref: '1be4d64ce16d29c316e2d6c297ed7be248126057'
 
-## Authentication
+## Diagnostic
 
-#gem 'devise'
+group :development do
+  ## Better Errors
+  gem "better_errors"
+  gem "binding_of_caller"
+  ## Pry as REPL in Rails Console
+  gem 'pry'
+  gem 'pry-rails'
+end
 
-## Authorization
-
-#gem 'pundit'
 
 ## Testing
 
