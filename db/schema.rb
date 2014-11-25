@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141028225326) do
+ActiveRecord::Schema.define(version: 20141125233508) do
+
+  create_table "hots", force: true do |t|
+    t.integer  "lumberjack_id"
+    t.integer  "lumberjill_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "hots", ["lumberjack_id"], name: "index_hots_on_lumberjack_id"
+  add_index "hots", ["lumberjill_id"], name: "index_hots_on_lumberjill_id"
 
   create_table "lumberjacks", force: true do |t|
     t.string   "name"
@@ -21,6 +31,14 @@ ActiveRecord::Schema.define(version: 20141028225326) do
   end
 
   add_index "lumberjacks", ["lumberjill_id"], name: "index_lumberjacks_on_lumberjill_id"
+
+  create_table "lumberjacks_lumberjills", id: false, force: true do |t|
+    t.integer "lumberjack_id"
+    t.integer "lumberjill_id"
+  end
+
+  add_index "lumberjacks_lumberjills", ["lumberjack_id"], name: "index_lumberjacks_lumberjills_on_lumberjack_id"
+  add_index "lumberjacks_lumberjills", ["lumberjill_id"], name: "index_lumberjacks_lumberjills_on_lumberjill_id"
 
   create_table "lumberjills", force: true do |t|
     t.string   "name"

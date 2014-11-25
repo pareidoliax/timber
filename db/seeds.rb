@@ -30,3 +30,21 @@ puts lumberjacks.pluck(:lumberjill_id).to_s
 lumberjills.each {|lumberjill| lumberjill.update_attribute :lumberjack_id, lumberjacks.sample.id}
 puts "Lumberjills have picked true loves"
 puts lumberjills.pluck(:lumberjack_id).to_s
+
+puts "Adding hotties to lumberjacks"
+lumberjacks.each do |lumberjack|
+  rand(2..7).times do
+    lumberjack.hotties << lumberjills.sample
+  end
+  print lumberjack.hotties.pluck(:id).to_s
+end
+puts "\n"
+
+puts "Adding hotties to lumberjills"
+lumberjills.each do |lumberjill|
+  rand(2..7).times do
+    lumberjill.hots.create lumberjack: lumberjacks.sample
+  end
+  print lumberjill.hotties.pluck(:id).to_s
+end
+
